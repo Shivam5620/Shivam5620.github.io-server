@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Edit Product</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+  <meta name="description" content="This is an example dashboard created using built-in elements and components.">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+    <!-- Include your header here -->
+    <%- include('../Layout/header'); -%>
+      <div class="app-main">
+        <!-- Include your sidebar here -->
+        <%- include('../Layout/sidebar'); -%>
+          <div class="app-main__outer">
+            <div class="container">
+              <h2>Edit_Product </h2>
+              <form action="/update/<%= product.id%>" method="post">
+                <div class="form-group">
+                  <label for="firstname"> title</label>
+                  <input type="text" class="form-control" id="exampleInputfirstname" name="title" value="<%=product.title %>">
+                </div>
+                <div class="form-group">
+                  <label for="Price">Price</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="price" value="<%=product.price %>">
+                </div>
+                <div class="form-group">
+                  <label for="description">description</label>
+                  <input type="description" class="form-control" id="exampleInputPassword" name="description" value="<%=product.description %>">
+                </div>
+                <div class="form-group">
+                  <label for="category">category</label>
+                  <input type="text" class="form-control" id="exampleInputphoneno" name="category" value="<%=product.category %>">
+                </div>
+                <div class="form-group">
+                  <label for="image">File Upload</label>
+                  <input type="file" class="form-control" name="image">
+                  <img src="<%= product.image %>" alt="old img" width="60" height="60">
+                </div>
+                <button type="submit" class="btn btn-primary" name="Update_product">Update_product</button><br><br>
+                <!-- <a href="/Add_product"></a> -->
+              </form>
+              <% if(typeof message !=='undefined' ){ %>
+                <p style="color: green;">
+                  <%= message %>
+                </p>
+                <% } %>
+            </div>
+            <!-- Include your footer here -->
+            <%- include('../Layout/footer'); -%>
+          </div>
+      </div>
+  </div>
+</body>
+
+</html>
+
+
+
+
+    
+  
+  

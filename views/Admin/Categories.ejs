@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>CategoryList</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+  <meta name="description" content="This is an example dashboard created using built-in elements and components.">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+    <!-- Include your header here -->
+    <%- include('../Layout/header'); -%>
+      <div class="app-main">
+        <!-- Include your sidebar here -->
+        <%- include('../Layout/sidebar'); -%>
+          <div class="app-main__outer">
+            <div class="app-main__inner">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="main-card mb-3 card">
+                    <h1>
+                      <div class="card-header  text-info">Products
+                      </div>
+                    </h1>
+                    <div class="table-responsive">
+                      <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                        <thead>
+                          <tr class="bg-dark text-white ">
+                            <th class="text-center">ID</th>
+                            <th class="text-center">name</th>
+                         
+                            <th class="text-center col-span-2">Action</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% if (CategoryList.length> 0) {
+                            for (let i = 0; i < CategoryList.length; i++) { %>
+                              <tr>
+                                <td class="text-center text-muted">
+                                  <%= i + 1 %>
+                                </td>
+                                <td>
+                                  <div class="widget-content p-0">
+                                    <div class="widget-content-wrapper">
+                                      <div class="widget-content-left mr-3">
+                                        <div class="widget-content-left">
+                                          <!-- <img width="40" class="rounded-circle" src="assets/images/avatars/4.jpg" alt=""> -->
+                                        </div>
+                                      </div>
+                                      <div class="widget-content-left flex2">
+                                        <div class="widget-heading">
+                                          <%= CategoryList[i].name %>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                               
+                              
+                                <td class="text-center ">
+                                  <a href='/Edit_Category/<%= CategoryList[i].id %>'>
+                                    <i class="nav-link-icon fa fa-edit fa-lg mx-1 text-success "></i></a>
+                                </td>
+                                <td class="text-center">
+                                  <a href='/Delete_Category/<%= CategoryList[i].id %>'>
+                                    <i class="fa-solid fa-trash-can fa-lg mx-1 text-danger"></i></a>
+                                </td>
+                              </tr>
+                              <% } } else { %>
+                                <tr>
+                                  <td colspan="5">Users Not Found</td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="d-block text-center card-footer">
+                      <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i
+                          class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                      <button class="btn-wide btn btn-success">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Include your footer here -->
+            <%- include('../Layout/footer'); -%>
+          </div>
+      </div>
+  </div>
+
+  <!-- JavaScript function to handle Details button click -->
+  <script>
+    function showDetails(userId) {
+      // You can implement code here to show user details based on the user ID.
+      // For example, you can make an AJAX request to fetch and display user details.
+      // This is just a placeholder function.
+      alert('Details button clicked for User ID: ' + userId);
+    }
+  </script>
+</body>
+
+</html>
